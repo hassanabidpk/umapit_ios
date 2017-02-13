@@ -73,6 +73,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.isSecureTextEntry = true
         passwordTextField.returnKeyType = .done
         passwordTextField.clearButtonMode = .never
+        
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
     
     
     }
