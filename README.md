@@ -1,5 +1,7 @@
 # uMAPit iOS App
 
+[![Build Status](https://travis-ci.org/hassanabidpk/umapit_ios.svg?branch=master)](https://travis-ci.org/hassanabidpk/umapit_ios)
+
 Please see the [website](http://www.umapit.co) to get an idea about this app.
 
 ## How to run
