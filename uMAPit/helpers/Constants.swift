@@ -15,6 +15,9 @@ struct Constants {
     static let BASE_LOGIN_URL_LOCAL = "http://localhost:8000/rest-auth/login/"
     static let BASE_LOGIN_URL = "https://umapit.azurewebsites.net/rest-auth/login/"
     
+    static let BASE_USER_URL_LOCAL = "http://localhost:8000/rest-auth/user/"
+    static let BASE_USER_URL = "https://umapit.azurewebsites.net/rest-auth/user/"
+    
     static let BASE_LOGOUT_URL_LOCAL = "http://localhost:8000/rest-auth/logout/"
     static let BASE_LOGOUT_URL = "https://umapit.azurewebsites.net/rest-auth/logout/"
 

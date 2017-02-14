@@ -10,12 +10,18 @@ import UIKit
 
 class HomeTabBarViewController: UITabBarController, UITabBarControllerDelegate {
 
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         print("HomeTabBarViewController - viewDidLoad")
         self.delegate = self
         self.selectedIndex = 0
+        
+        self.tabBar.barTintColor = UIColor(red: 77/255, green: 195/255, blue: 58/255, alpha: 1.0)
+        
         tabBarController(self, didSelect: self.selectedViewController!)
         
     }

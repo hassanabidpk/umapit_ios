@@ -15,7 +15,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        let userDefaults = UserDefaults.standard
+        
+        if let _ = userDefaults.value(forKey: "userToken") {
+            
+            print("Logged in user")
+           
+            let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let homeViewController = mainStoryBoard.instantiateViewController(withIdentifier: "HomeTabBarViewController") as! HomeTabBarViewController
+            
+            window!.rootViewController = homeViewController
+            window!.makeKeyAndVisible()
+
+        }
+        
+        
         return true
     }
 

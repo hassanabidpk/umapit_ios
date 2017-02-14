@@ -21,6 +21,8 @@
 		3C17CFD71E504982009A2BD3 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C17CFD51E504982009A2BD3 /* FeedViewController.swift */; };
 		3C17CFD81E504982009A2BD3 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C17CFD51E504982009A2BD3 /* FeedViewController.swift */; };
 		3C17CFDB1E50531A009A2BD3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C17CFDA1E505319009A2BD3 /* Constants.swift */; };
+		3C3351C61E51E6EE00282464 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3351C51E51E6EE00282464 /* User.swift */; };
+		3C3351C81E52C09000282464 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3351C71E52C09000282464 /* String+MD5.swift */; };
 		3C7434821E2CEB190043A555 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7434811E2CEB190043A555 /* AppDelegate.swift */; };
 		3C7434841E2CEB190043A555 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7434831E2CEB190043A555 /* LoginViewController.swift */; };
 		3C7434871E2CEB190043A555 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C7434851E2CEB190043A555 /* Main.storyboard */; };
@@ -60,6 +62,8 @@
 		3C17CFD11E504931009A2BD3 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3C17CFD51E504982009A2BD3 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		3C17CFDA1E505319009A2BD3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3C3351C51E51E6EE00282464 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3C3351C71E52C09000282464 /* String+MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		3C74347E1E2CEB190043A555 /* uMAPit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uMAPit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C7434811E2CEB190043A555 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C7434831E2CEB190043A555 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -138,8 +142,17 @@
 			isa = PBXGroup;
 			children = (
 				3C17CFDA1E505319009A2BD3 /* Constants.swift */,
+				3C3351C71E52C09000282464 /* String+MD5.swift */,
 			);
 			path = helpers;
+			sourceTree = "<group>";
+		};
+		3C17CFDC1E51B491009A2BD3 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				3C3351C51E51E6EE00282464 /* User.swift */,
+			);
+			path = models;
 			sourceTree = "<group>";
 		};
 		3C7434751E2CEB190043A555 = {
@@ -167,6 +180,7 @@
 		3C7434801E2CEB190043A555 /* uMAPit */ = {
 			isa = PBXGroup;
 			children = (
+				3C17CFDC1E51B491009A2BD3 /* models */,
 				3C17CFD91E5052F9009A2BD3 /* helpers */,
 				3C17CFC21E4F02CB009A2BD3 /* controllers */,
 				3C7434811E2CEB190043A555 /* AppDelegate.swift */,
@@ -496,7 +510,9 @@
 				3C17CFC41E4F031A009A2BD3 /* LandingPageViewController.swift in Sources */,
 				3C17CFC81E4F0397009A2BD3 /* LandingViewController.swift in Sources */,
 				3C7434821E2CEB190043A555 /* AppDelegate.swift in Sources */,
+				3C3351C61E51E6EE00282464 /* User.swift in Sources */,
 				3C17CFCE1E5048AB009A2BD3 /* HomeTabBarViewController.swift in Sources */,
+				3C3351C81E52C09000282464 /* String+MD5.swift in Sources */,
 				3C17CFD61E504982009A2BD3 /* FeedViewController.swift in Sources */,
 				3C17CFDB1E50531A009A2BD3 /* Constants.swift in Sources */,
 			);

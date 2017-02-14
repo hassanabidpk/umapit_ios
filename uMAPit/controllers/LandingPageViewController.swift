@@ -39,6 +39,7 @@ class LandingPageViewController: UIViewController, UIPageViewControllerDataSourc
     
     func setupPageViewControllers() {
         
+        
         // Setup the pages
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let landingViewController: UIViewController! = storyboard.instantiateViewController(withIdentifier: "landing")
@@ -123,10 +124,7 @@ class LandingPageViewController: UIViewController, UIPageViewControllerDataSourc
     */
     
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    // MARK - helpers 
     
 
 }

@@ -133,7 +133,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                         } else {
                             
                             print("login failed \(loginStatus)")
-                            self.loginSpinner.stopAnimating()                        }
+                            self.loginSpinner.stopAnimating()
+                            self.showLoginAlert()
+                            self.passwordTextField.text = ""
+                            
+                        }
                     
                     } else {
                         
@@ -151,7 +155,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        textField.resignFirstResponder()
+        if( textField == usernameTextField ) {
+            
+            textField.resignFirstResponder()
+            passwordTextField.becomeFirstResponder()
+        } else {
+            
+            textField.resignFirstResponder()
+        }
         return true
         
     }
@@ -194,6 +205,26 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         self.present(homeViewController, animated: true, completion: nil)
         
+    }
+    
+    func showLoginAlert() {
+        
+        let title = NSLocalizedString("Login error", comment: "")
+        let message = NSLocalizedString("We could not find an account with this username and password", comment: "")
+        let cancelButtonTitle = NSLocalizedString("OK", comment: "")
+    
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    
+        // Create the action.
+        let cancelAction = UIAlertAction(title: cancelButtonTitle, style: .cancel) { action in
+            print("cancel button clicked")
+        }
+    
+        // Add the action.
+        alertController.addAction(cancelAction)
+    
+        present(alertController, animated: true, completion: nil)
+    
     }
     
 
