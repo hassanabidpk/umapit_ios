@@ -10,9 +10,13 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+#if DEBUG
+    let BASE_LOGIN_URL = "http://localhost:8000/rest-auth/login/"
+#else
+    let BASE_LOGIN_URL = "https://umapit.azurewebsites.net/rest-auth/login/"
+#endif
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
-
 
     // MARK - properties
     
@@ -110,13 +114,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
              print("username: \(username)")
             
-            Alamofire.request(Constants.BASE_LOGIN_URL, method: .post, parameters: ["username": username,
+            Alamofire.request(BASE_LOGIN_URL, method: .post, parameters: ["username": username,
                 "password": password])
                 .responseJSON {response in
                     
-                    print(response.request)  // original URL request
-                    print(response.response) // URL response
-                    print(response.data)     // server data
+                    print(response.request ?? "")  // original URL request
+                    print(response.response ?? "") // URL response
+                    print(response.data ?? "")     // server data
                     print(response.result)   // result of response serialization
                     
                     
@@ -127,7 +131,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             
                             print("token: \(strToken)")
                             self.loginSpinner.stopAnimating()
-                            self.saveTokenInUserDefaults(strToken: strToken)
+                            self.saveUserDefaults(strToken: strToken, userName: username)
                             self.startHomeController()
                             
                         } else {
@@ -179,10 +183,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     // MARK - helper methods
     
-    func saveTokenInUserDefaults(strToken : String)  {
+    func saveUserDefaults(strToken : String, userName: String)  {
         
         let userDefaults = UserDefaults.standard
         userDefaults.set(strToken, forKey: "userToken")
+        userDefaults.set(userName, forKey: "username")
         userDefaults.synchronize()
         
     }

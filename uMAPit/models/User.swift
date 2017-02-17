@@ -16,7 +16,7 @@ class User: Object {
     dynamic var first_name = ""
     dynamic var last_name = ""
     dynamic var email = ""
-    dynamic var pk = 0
+    dynamic var id = 0
     
 
 }

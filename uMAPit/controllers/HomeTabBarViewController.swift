@@ -12,7 +12,6 @@ class HomeTabBarViewController: UITabBarController, UITabBarControllerDelegate {
 
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,8 +31,6 @@ class HomeTabBarViewController: UITabBarController, UITabBarControllerDelegate {
             print("profileviewcontroller")
         }
     }
-
-
     
 
     /*

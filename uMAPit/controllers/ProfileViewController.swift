@@ -12,13 +12,17 @@ import SwiftyJSON
 import RealmSwift
 import Kingfisher
 
+
+#if DEBUG
+    let BASE_USER_URL = "http://localhost:8000/rest-auth/user/"
+    let BASE_LOGOUT_URL = "http://localhost:8000/rest-auth/logout/"
+#else
+    let BASE_USER_URL = "https://umapit.azurewebsites.net/rest-auth/user/"
+    let BASE_LOGOUT_URL = "https://umapit.azurewebsites.net/rest-auth/logout/"
+#endif
+
 class ProfileViewController: UIViewController {
-    
-    static let BASE_USER_URL_LOCAL = "http://localhost:8000/rest-auth/user/"
-    static let BASE_USER_URL = "https://umapit.azurewebsites.net/rest-auth/user/"
-    
-    static let BASE_LOGOUT_URL_LOCAL = "http://localhost:8000/rest-auth/logout/"
-    static let BASE_LOGOUT_URL = "https://umapit.azurewebsites.net/rest-auth/logout/"
+
     
     static let GRAVATAR_IMAGE_URL = "https://www.gravatar.com/avatar/"
     
@@ -44,7 +48,9 @@ class ProfileViewController: UIViewController {
     
     func getUserDetails() {
         
-        let results = try! Realm().objects(User.self)
+        let userDefaults = UserDefaults.standard
+        let username = userDefaults.value(forKey: "username")
+        let results = try! Realm().objects(User.self).filter("username = \(username!)")
         
         if(results.count > 0) {
             
@@ -55,15 +61,14 @@ class ProfileViewController: UIViewController {
         
         } else  {
         
-            let strToken = UserDefaults.standard.string(forKey: "userToken")
-        
-            let authToken = "Token \(strToken)"
+            let strToken = userDefaults.value(forKey: "userToken")
+            let authToken = "Token \(strToken!)"
         
             let headers = [
                 "Authorization": authToken
             ]
         
-            Alamofire.request(ProfileViewController.BASE_USER_URL, parameters: nil, encoding: JSONEncoding.default, headers: headers)
+            Alamofire.request(BASE_USER_URL, parameters: nil, encoding: JSONEncoding.default, headers: headers)
                 .responseJSON  { response in
         
                 debugPrint(response)
@@ -108,10 +113,15 @@ class ProfileViewController: UIViewController {
         
         print("logout")
         
-        Alamofire.request(ProfileViewController.BASE_LOGOUT_URL).validate().responseJSON { response in
+        Alamofire.request(BASE_LOGOUT_URL).validate().responseJSON { response in
             switch response.result {
             case .success:
-                UserDefaults.standard.set(nil, forKey: "userToken")
+                let userDefaults = UserDefaults.standard
+                userDefaults.removeObject(forKey: "userToken")
+                userDefaults.removeObject(forKey: "username")
+                userDefaults.synchronize()
+                
+                self.deleteAllRealmDB()
                 let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LandingPageViewController") as! LandingPageViewController
                 
                 let appDel:UIApplicationDelegate  = UIApplication.shared.delegate!
@@ -123,6 +133,15 @@ class ProfileViewController: UIViewController {
             }
         }
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func deleteAllRealmDB() {
+        
+        let realm = try! Realm()
+        try! realm.write {
+            realm.deleteAll()
+            print("deleted realm db because user has logout");
+        }
     }
     
     func setUserUI(first_name: String, last_name: String, email: String ) {

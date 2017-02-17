@@ -23,6 +23,10 @@
 		3C17CFDB1E50531A009A2BD3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C17CFDA1E505319009A2BD3 /* Constants.swift */; };
 		3C3351C61E51E6EE00282464 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3351C51E51E6EE00282464 /* User.swift */; };
 		3C3351C81E52C09000282464 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3351C71E52C09000282464 /* String+MD5.swift */; };
+		3C3351CA1E55597100282464 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3351C91E55597100282464 /* Place.swift */; };
+		3C3351CC1E555C6D00282464 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3351CB1E555C6D00282464 /* Tag.swift */; };
+		3C3351CE1E555D4B00282464 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3351CD1E555D4B00282464 /* Location.swift */; };
+		3C3351D11E55FAF100282464 /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3351D01E55FAF100282464 /* PlaceTableViewCell.swift */; };
 		3C7434821E2CEB190043A555 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7434811E2CEB190043A555 /* AppDelegate.swift */; };
 		3C7434841E2CEB190043A555 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7434831E2CEB190043A555 /* LoginViewController.swift */; };
 		3C7434871E2CEB190043A555 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C7434851E2CEB190043A555 /* Main.storyboard */; };
@@ -64,6 +68,10 @@
 		3C17CFDA1E505319009A2BD3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3C3351C51E51E6EE00282464 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3C3351C71E52C09000282464 /* String+MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
+		3C3351C91E55597100282464 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		3C3351CB1E555C6D00282464 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		3C3351CD1E555D4B00282464 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		3C3351D01E55FAF100282464 /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
 		3C74347E1E2CEB190043A555 /* uMAPit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uMAPit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C7434811E2CEB190043A555 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C7434831E2CEB190043A555 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -151,8 +159,19 @@
 			isa = PBXGroup;
 			children = (
 				3C3351C51E51E6EE00282464 /* User.swift */,
+				3C3351C91E55597100282464 /* Place.swift */,
+				3C3351CB1E555C6D00282464 /* Tag.swift */,
+				3C3351CD1E555D4B00282464 /* Location.swift */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		3C3351CF1E55EF5500282464 /* tableviewcells */ = {
+			isa = PBXGroup;
+			children = (
+				3C3351D01E55FAF100282464 /* PlaceTableViewCell.swift */,
+			);
+			path = tableviewcells;
 			sourceTree = "<group>";
 		};
 		3C7434751E2CEB190043A555 = {
@@ -180,6 +199,7 @@
 		3C7434801E2CEB190043A555 /* uMAPit */ = {
 			isa = PBXGroup;
 			children = (
+				3C3351CF1E55EF5500282464 /* tableviewcells */,
 				3C17CFDC1E51B491009A2BD3 /* models */,
 				3C17CFD91E5052F9009A2BD3 /* helpers */,
 				3C17CFC21E4F02CB009A2BD3 /* controllers */,
@@ -506,14 +526,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C17CFD21E504931009A2BD3 /* ProfileViewController.swift in Sources */,
+				3C3351CC1E555C6D00282464 /* Tag.swift in Sources */,
 				3C7434841E2CEB190043A555 /* LoginViewController.swift in Sources */,
+				3C3351D11E55FAF100282464 /* PlaceTableViewCell.swift in Sources */,
 				3C17CFC41E4F031A009A2BD3 /* LandingPageViewController.swift in Sources */,
 				3C17CFC81E4F0397009A2BD3 /* LandingViewController.swift in Sources */,
 				3C7434821E2CEB190043A555 /* AppDelegate.swift in Sources */,
+				3C3351CE1E555D4B00282464 /* Location.swift in Sources */,
 				3C3351C61E51E6EE00282464 /* User.swift in Sources */,
 				3C17CFCE1E5048AB009A2BD3 /* HomeTabBarViewController.swift in Sources */,
 				3C3351C81E52C09000282464 /* String+MD5.swift in Sources */,
 				3C17CFD61E504982009A2BD3 /* FeedViewController.swift in Sources */,
+				3C3351CA1E55597100282464 /* Place.swift in Sources */,
 				3C17CFDB1E50531A009A2BD3 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -674,11 +698,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 91EBC498A03CEC3E0448A9C7 /* Pods-uMAPit.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZBZ6445J8B;
 				INFOPLIST_FILE = uMAPit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = co.umapit.app.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -689,11 +715,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 10CCF44358CB5FD2AB679B6E /* Pods-uMAPit.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZBZ6445J8B;
 				INFOPLIST_FILE = uMAPit/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DRELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = co.umapit.app.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;

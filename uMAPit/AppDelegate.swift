@@ -18,9 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let userDefaults = UserDefaults.standard
         
-        if let _ = userDefaults.value(forKey: "userToken") {
+        if let token = userDefaults.value(forKey: "userToken") {
             
-            print("Logged in user")
+            print("Logged in user \(token)")
            
             let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let homeViewController = mainStoryBoard.instantiateViewController(withIdentifier: "HomeTabBarViewController") as! HomeTabBarViewController
