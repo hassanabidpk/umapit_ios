@@ -12,6 +12,7 @@ before_install:
   - gem install xcpretty -N
   - brew update
   - brew install swiftlint || true
+  - pod update
 script:
   - set -o pipefail
   - xcodebuild -workspace uMAPit.xcworkspace -scheme uMAPit -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
