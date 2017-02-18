@@ -16,4 +16,4 @@ before_install:
 script:
   - set -o pipefail
   - xcodebuild -workspace uMAPit.xcworkspace -scheme uMAPit -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
-  - swiftlint
+# - swiftlint
