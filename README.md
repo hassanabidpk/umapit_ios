@@ -21,7 +21,7 @@ Please see the [website](http://www.umapit.co) to get an idea about this app.
 
 ![Landing Screen](images/landing.png)
 
-Feed View
+
 ![Feed View](images/feed_view.png)
 
 ## TODO
