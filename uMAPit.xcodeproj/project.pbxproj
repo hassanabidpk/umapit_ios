@@ -30,6 +30,7 @@
 		3C3351D31E5880E200282464 /* SinglePlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3351D21E5880E200282464 /* SinglePlaceViewController.swift */; };
 		3C3351D41E5880E200282464 /* SinglePlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3351D21E5880E200282464 /* SinglePlaceViewController.swift */; };
 		3C3351D51E5880E200282464 /* SinglePlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3351D21E5880E200282464 /* SinglePlaceViewController.swift */; };
+		3C3351D71E5995D300282464 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3351D61E5995D300282464 /* ProfileTableViewCell.swift */; };
 		3C7434821E2CEB190043A555 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7434811E2CEB190043A555 /* AppDelegate.swift */; };
 		3C7434841E2CEB190043A555 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7434831E2CEB190043A555 /* LoginViewController.swift */; };
 		3C7434871E2CEB190043A555 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C7434851E2CEB190043A555 /* Main.storyboard */; };
@@ -76,6 +77,7 @@
 		3C3351CD1E555D4B00282464 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		3C3351D01E55FAF100282464 /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
 		3C3351D21E5880E200282464 /* SinglePlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePlaceViewController.swift; sourceTree = "<group>"; };
+		3C3351D61E5995D300282464 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		3C74347E1E2CEB190043A555 /* uMAPit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uMAPit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C7434811E2CEB190043A555 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C7434831E2CEB190043A555 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				3C3351D01E55FAF100282464 /* PlaceTableViewCell.swift */,
+				3C3351D61E5995D300282464 /* ProfileTableViewCell.swift */,
 			);
 			path = tableviewcells;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				3C3351D31E5880E200282464 /* SinglePlaceViewController.swift in Sources */,
 				3C7434821E2CEB190043A555 /* AppDelegate.swift in Sources */,
 				3C3351CE1E555D4B00282464 /* Location.swift in Sources */,
+				3C3351D71E5995D300282464 /* ProfileTableViewCell.swift in Sources */,
 				3C3351C61E51E6EE00282464 /* User.swift in Sources */,
 				3C17CFCE1E5048AB009A2BD3 /* HomeTabBarViewController.swift in Sources */,
 				3C3351C81E52C09000282464 /* String+MD5.swift in Sources */,

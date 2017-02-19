@@ -10,6 +10,7 @@ target 'uMAPit' do
   pod 'SwiftyJSON'
   pod 'Kingfisher', '~> 3.0'
   pod 'ImageSlideshow', '~> 1.0.0'
+  pod 'ImageSlideshow/Kingfisher'
 
 
   # Pods for uMAPit

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ImageSlideshow
 
 class SinglePlaceViewController: UIViewController {
     
@@ -20,8 +21,8 @@ class SinglePlaceViewController: UIViewController {
     
     @IBOutlet weak var profileImage: UIImageView!
     
+    @IBOutlet weak var placeImageSlideShow: ImageSlideshow!
     
-    @IBOutlet weak var placeImage: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
     
     @IBOutlet weak var likeLabel: UILabel!
@@ -55,20 +56,37 @@ class SinglePlaceViewController: UIViewController {
             likeLabel.text = "\(place.like_count)"
             flagLabel.text = "\(place.flag_count)"
             
-            placeImage.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleBottomMargin, .flexibleRightMargin, .flexibleLeftMargin, .flexibleTopMargin]
-            placeImage.contentMode = .scaleAspectFill
-            placeImage.clipsToBounds = true
+//            placeImage.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleBottomMargin, .flexibleRightMargin, .flexibleLeftMargin, .flexibleTopMargin]
+//            placeImage.contentMode = .scaleAspectFill
+//            placeImage.clipsToBounds = true
+//            
+//            
+//           placeImage.kf.setImage(with: URL(string: "\(IMAGE_BASE_URL)\(place.image_1)")!,
+//                                        placeholder: nil,
+//                                        options: [.transition(.fade(1))],
+//                                        progressBlock: nil,
+//                                        completionHandler: nil)
+//            
+        
+            placeImageSlideShow.backgroundColor = UIColor.white
+            placeImageSlideShow.slideshowInterval = 5.0
+            placeImageSlideShow.pageControlPosition = PageControlPosition.underScrollView
+            placeImageSlideShow.pageControl.currentPageIndicatorTintColor = UIColor.lightGray;
+            placeImageSlideShow.pageControl.pageIndicatorTintColor = UIColor.black;
+            placeImageSlideShow.contentScaleMode = UIViewContentMode.scaleAspectFill
             
-            
-           placeImage.kf.setImage(with: URL(string: "\(IMAGE_BASE_URL)\(place.image_1)")!,
-                                        placeholder: nil,
-                                        options: [.transition(.fade(1))],
-                                        progressBlock: nil,
-                                        completionHandler: nil)
+            let kingfisherSource = [KingfisherSource(urlString: "\(IMAGE_BASE_URL)\(place.image_1)")!,
+                                    KingfisherSource(urlString: "\(IMAGE_BASE_URL)\(place.image_2)")!,
+                                    KingfisherSource(urlString: "\(IMAGE_BASE_URL)\(place.image_3)")!,
+                                    KingfisherSource(urlString: "\(IMAGE_BASE_URL)\(place.image_4)")!]
             
         
             
-        
+            // try out other sources such as `afNetworkingSource`, `alamofireSource` or `sdWebImageSource` or `kingfisherSource`
+            placeImageSlideShow.setImageInputs(kingfisherSource)
+            
+            let recognizer = UITapGestureRecognizer(target: self, action: #selector(SinglePlaceViewController.didTap))
+            placeImageSlideShow.addGestureRecognizer(recognizer)
         }
     
     }
@@ -86,6 +104,11 @@ class SinglePlaceViewController: UIViewController {
         return ""
     }
     
+    
+    func didTap() {
+        
+        placeImageSlideShow.presentFullScreenController(from: self)
+    }
     
     // MARK: - IBAction
     

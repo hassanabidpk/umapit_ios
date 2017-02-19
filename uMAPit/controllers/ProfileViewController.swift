@@ -21,8 +21,9 @@ import Kingfisher
     let BASE_LOGOUT_URL = "https://umapit.azurewebsites.net/rest-auth/logout/"
 #endif
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var userPlacesTableView: UITableView!
     
     static let GRAVATAR_IMAGE_URL = "https://www.gravatar.com/avatar/"
     
@@ -30,33 +31,59 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
     
     @IBOutlet weak var name: UILabel!
+    
+    var realm: Realm!
+    var placesResult: Results<Place>?
+
+    var notificationToken: NotificationToken?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let logoutButton = UIBarButtonItem(title: "Log out", style: UIBarButtonItemStyle.plain, target: self, action: #selector(actionLogoutUser(_:)))
-        logoutButton.tintColor = UIColor.black
-        self.navigationItem.rightBarButtonItem = logoutButton
+        
+        setUI()
+        
+        realm = try! Realm()
+        
+        // Set realm notification block
+        notificationToken = realm.addNotificationBlock { [unowned self] note, realm in
+            self.userPlacesTableView.reloadData()
+        }
         
         self.getUserDetails()
-
+        
         
     }
     
-
+    
     // MARK - Helper methods
+    
+    func setUI() {
+    
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 77/255, green: 195/255, blue: 58/255, alpha: 1.0)
+        
+        let logoutButton = UIBarButtonItem(title: "Log out", style: UIBarButtonItemStyle.plain, target: self, action: #selector(actionLogoutUser(_:)))
+        logoutButton.tintColor = UIColor.black
+        self.navigationItem.rightBarButtonItem = logoutButton
+
+    }
     
     func getUserDetails() {
         
         let userDefaults = UserDefaults.standard
         let username = userDefaults.value(forKey: "username")
-        let results = try! Realm().objects(User.self).filter("username = \(username!)")
+        let predicate = NSPredicate(format: "username = %@", "\(username!)")
+        let results = try! Realm().objects(User.self).filter(predicate)
         
         if(results.count > 0) {
             
             let user = results[0]
             
-            self.setUserUI(first_name: user.first_name, last_name: user.last_name, email: user.email)
+            self.setUserUI(first_name: user.first_name,
+                           last_name: user.last_name,
+                           email: user.email,
+                           username: user.username)
+            
         
         
         } else  {
@@ -93,7 +120,10 @@ class ProfileViewController: UIViewController {
                         
                             try! realm.commitWrite()
                         
-                            self.setUserUI(first_name: first_name, last_name: last_name, email: email)
+                            self.setUserUI(first_name: first_name,
+                                           last_name: last_name,
+                                           email: email,
+                                           username: username)
                         
                         
                         } else {
@@ -144,7 +174,7 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    func setUserUI(first_name: String, last_name: String, email: String ) {
+    func setUserUI(first_name: String, last_name: String, email: String, username: String ) {
     
         self.name.text = "\(first_name) \(last_name)"
         let hash = email.md5
@@ -154,8 +184,86 @@ class ProfileViewController: UIViewController {
                                       options: [.transition(.fade(1))],
                                       progressBlock: nil,
                                       completionHandler: nil)
+        
+        
+        setUserPlaces(user_name: username)
     
     }
+    
+    func setUserPlaces(user_name: String) {
+        
+        let predicate = NSPredicate(format: "username = %@", "\(user_name)")
+
+        let user = realm.objects(User.self).filter(predicate)
+    
+        placesResult = realm.objects(Place.self).filter("user == %@", user[0])
+        
+        self.userPlacesTableView.reloadData()
+        
+    
+    }
+    
+    
+    // MARK: - UITableView Delegate methods
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if let result = placesResult {
+            return result.count
+        }
+        
+        return 0
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cellIdentifier = "profilecell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! ProfileTableViewCell
+        
+        if let result = placesResult  {
+            
+            let object = result[indexPath.row]
+            cell.placeNameLabel?.text = object.name
+            let formatted_date = getFormattedDateForUI(object.created_at)
+            cell.createdAtLabel.text = "MAPPED \(formatted_date)"
+        
+            cell.placeImage.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleBottomMargin, .flexibleRightMargin, .flexibleLeftMargin, .flexibleTopMargin]
+            cell.placeImage.contentMode = .scaleAspectFill
+            cell.placeImage.clipsToBounds = true
+        
+        
+            cell.placeImage.kf.setImage(with: URL(string: "\(IMAGE_BASE_URL)\(object.image_1)")!,
+                                    placeholder: nil,
+                                    options: [.transition(.fade(1))],
+                                    progressBlock: nil,
+                                    completionHandler: nil)
+            
+        }
+        
+        
+        return cell
+
+        
+        
+    }
+    
+    func getFormattedDateForUI(_ date: Date?) -> String {
+        
+        if let release_date = date {
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd"
+            return formatter.string(from: release_date)
+        }
+        
+        return ""
+    }
+
     
 
     /*

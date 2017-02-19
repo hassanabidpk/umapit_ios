@@ -31,6 +31,8 @@ class FeedViewController: UITableViewController {
     let realm = try! Realm()
     let results = try! Realm().objects(Place.self)
     var notificationToken: NotificationToken?
+    
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +43,12 @@ class FeedViewController: UITableViewController {
         
         self.tableView.addSubview(self.refreshControl!)
         
-       
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        navigationItem.title = "uMAPit"
     }
     
     // MARK : - UI 
@@ -149,11 +156,7 @@ class FeedViewController: UITableViewController {
             for subJson in data {
                 
                 let places_tags = subJson["place_tags"].array
-                
-                let tags = List<Tag>()
-            
 
-                
                 let place = realm.create(Place.self, value: ["name": subJson["name"].stringValue,
                                                  "description_place": subJson["description"].stringValue,
                                                  "created_at": self.dateFromStringConverter(date: subJson["created_at"].stringValue),
@@ -169,7 +172,6 @@ class FeedViewController: UITableViewController {
                 
                 
                 for tag in places_tags! {
-                    
                     
                     let existing_tag = try! Realm().objects(Tag.self).filter("id = \(tag["id"].int!)")
                     
@@ -188,7 +190,6 @@ class FeedViewController: UITableViewController {
                     
                     
                 }
-
                 
                 let location = subJson["location"]
                 
@@ -210,7 +211,6 @@ class FeedViewController: UITableViewController {
                 
                 let user = subJson["user"]
                 
-                
                 let existing_user = try! Realm().objects(User.self).filter("id = \(user["id"].int!)")
                 
                 if(existing_user.count < 1) {
@@ -229,14 +229,6 @@ class FeedViewController: UITableViewController {
 
                 
                 }
-                
-               
-                
-//                place.place_tags.append(objectsIn: tags)
-                
-                
-                
-            
             }
             
             try! realm.commitWrite()
@@ -353,41 +345,20 @@ class FeedViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        navigationItem.title = nil
+        
         let object = results[indexPath.row]
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let placeViewController = storyboard.instantiateViewController(withIdentifier: "singleplace") as! SinglePlaceViewController
         
         placeViewController.singlePlace = object
         placeViewController.navigationItem.leftItemsSupplementBackButton = true
+        placeViewController.title = "uMAPit"
         
         self.navigationController?.pushViewController(placeViewController, animated: true)
         self.navigationController?.navigationBar.tintColor = UIColor.black
         
     }
-    
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        navigationItem.title = nil
-        
-        if segue.identifier == "showplace" {
-            if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = results[indexPath.row]
-                let controller = (segue.destination as! UINavigationController).topViewController as! SinglePlaceViewController
-                controller.singlePlace = object
-//                let backButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem., target: self, action: #selector(dismissPlaceView(_:)))
-//                controller.navigationItem.leftBarButtonItem =
-//                controller.navigationItem.leftItemsSupplementBackButton = true
-                navigationItem.title = "Back"
-                print("prepare segue!")
-            }
-        }
-        
-    }
-    
     
     // MARK: IBActions
     

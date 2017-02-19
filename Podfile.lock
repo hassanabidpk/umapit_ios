@@ -3,6 +3,9 @@ PODS:
   - ImageSlideshow (1.0.0):
     - ImageSlideshow/Core (= 1.0.0)
   - ImageSlideshow/Core (1.0.0)
+  - ImageSlideshow/Kingfisher (1.0.0):
+    - ImageSlideshow/Core
+    - Kingfisher (~> 3.0)
   - Kingfisher (3.4.0)
   - Realm (2.4.2):
     - Realm/Headers (= 2.4.2)
@@ -14,6 +17,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.3.0)
   - ImageSlideshow (~> 1.0.0)
+  - ImageSlideshow/Kingfisher
   - Kingfisher (~> 3.0)
   - RealmSwift
   - SwiftyJSON
@@ -26,6 +30,6 @@ SPEC CHECKSUMS:
   RealmSwift: 9556c0fe0f0cfecacfb755ae9e68ff379fc6bead
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 8c8b405ae611193d33f19ca063e3ece4bd9e55a2
+PODFILE CHECKSUM: 8bc206ec52ae96f42fcd20b3812047d453fb25ca
 
 COCOAPODS: 1.1.1
