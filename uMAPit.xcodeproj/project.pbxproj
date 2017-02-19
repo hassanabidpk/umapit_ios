@@ -27,6 +27,9 @@
 		3C3351CC1E555C6D00282464 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3351CB1E555C6D00282464 /* Tag.swift */; };
 		3C3351CE1E555D4B00282464 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3351CD1E555D4B00282464 /* Location.swift */; };
 		3C3351D11E55FAF100282464 /* PlaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3351D01E55FAF100282464 /* PlaceTableViewCell.swift */; };
+		3C3351D31E5880E200282464 /* SinglePlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3351D21E5880E200282464 /* SinglePlaceViewController.swift */; };
+		3C3351D41E5880E200282464 /* SinglePlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3351D21E5880E200282464 /* SinglePlaceViewController.swift */; };
+		3C3351D51E5880E200282464 /* SinglePlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3351D21E5880E200282464 /* SinglePlaceViewController.swift */; };
 		3C7434821E2CEB190043A555 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7434811E2CEB190043A555 /* AppDelegate.swift */; };
 		3C7434841E2CEB190043A555 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7434831E2CEB190043A555 /* LoginViewController.swift */; };
 		3C7434871E2CEB190043A555 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C7434851E2CEB190043A555 /* Main.storyboard */; };
@@ -72,6 +75,7 @@
 		3C3351CB1E555C6D00282464 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		3C3351CD1E555D4B00282464 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		3C3351D01E55FAF100282464 /* PlaceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTableViewCell.swift; sourceTree = "<group>"; };
+		3C3351D21E5880E200282464 /* SinglePlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinglePlaceViewController.swift; sourceTree = "<group>"; };
 		3C74347E1E2CEB190043A555 /* uMAPit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uMAPit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C7434811E2CEB190043A555 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C7434831E2CEB190043A555 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 				3C17CFCD1E5048AB009A2BD3 /* HomeTabBarViewController.swift */,
 				3C17CFD11E504931009A2BD3 /* ProfileViewController.swift */,
 				3C17CFD51E504982009A2BD3 /* FeedViewController.swift */,
+				3C3351D21E5880E200282464 /* SinglePlaceViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -531,6 +536,7 @@
 				3C3351D11E55FAF100282464 /* PlaceTableViewCell.swift in Sources */,
 				3C17CFC41E4F031A009A2BD3 /* LandingPageViewController.swift in Sources */,
 				3C17CFC81E4F0397009A2BD3 /* LandingViewController.swift in Sources */,
+				3C3351D31E5880E200282464 /* SinglePlaceViewController.swift in Sources */,
 				3C7434821E2CEB190043A555 /* AppDelegate.swift in Sources */,
 				3C3351CE1E555D4B00282464 /* Location.swift in Sources */,
 				3C3351C61E51E6EE00282464 /* User.swift in Sources */,
@@ -546,6 +552,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C3351D41E5880E200282464 /* SinglePlaceViewController.swift in Sources */,
 				3C17CFCF1E5048AB009A2BD3 /* HomeTabBarViewController.swift in Sources */,
 				3C7434971E2CEB190043A555 /* uMAPitTests.swift in Sources */,
 				3C17CFD71E504982009A2BD3 /* FeedViewController.swift in Sources */,
@@ -558,6 +565,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C3351D51E5880E200282464 /* SinglePlaceViewController.swift in Sources */,
 				3C17CFD01E5048AB009A2BD3 /* HomeTabBarViewController.swift in Sources */,
 				3C7434A21E2CEB190043A555 /* uMAPitUITests.swift in Sources */,
 				3C17CFD81E504982009A2BD3 /* FeedViewController.swift in Sources */,

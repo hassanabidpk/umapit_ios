@@ -151,27 +151,7 @@ class FeedViewController: UITableViewController {
                 let places_tags = subJson["place_tags"].array
                 
                 let tags = List<Tag>()
-                
-                for tag in places_tags! {
-                    
-                    
-                    let existing_tag = try! Realm().objects(Tag.self).filter("id = \(tag["id"].int!)")
             
-                    if(existing_tag.count < 1) {
-                
-                       let new_tag = realm.create(Tag.self, value: ["title": tag["title"].stringValue,
-                                                                 "id": tag["id"].int!,
-                                                                 "slug": tag["slug"].stringValue])
-                         tags.append(new_tag)
-                        
-                    } else {
-                        
-                         tags.append(existing_tag[0])
-                    }
-                    
-                   
-                }
-                
 
                 
                 let place = realm.create(Place.self, value: ["name": subJson["name"].stringValue,
@@ -187,6 +167,28 @@ class FeedViewController: UITableViewController {
                                                  "like_count": subJson["likes"].array?.count,
                                                  "flag_count": subJson["flags"].array?.count])
                 
+                
+                for tag in places_tags! {
+                    
+                    
+                    let existing_tag = try! Realm().objects(Tag.self).filter("id = \(tag["id"].int!)")
+                    
+                    if(existing_tag.count < 1) {
+                        
+                        let new_tag = realm.create(Tag.self, value: ["title": tag["title"].stringValue,
+                                                                     "id": tag["id"].int!,
+                                                                     "slug": tag["slug"].stringValue])
+                        print("new_tag : \(new_tag)")
+                        place.place_tags.append(new_tag)
+                        
+                    } else {
+                        
+                        place.place_tags.append(existing_tag[0])
+                    }
+                    
+                    
+                }
+
                 
                 let location = subJson["location"]
                 
@@ -230,7 +232,7 @@ class FeedViewController: UITableViewController {
                 
                
                 
-                place.place_tags.append(objectsIn: tags)
+//                place.place_tags.append(objectsIn: tags)
                 
                 
                 
@@ -351,22 +353,51 @@ class FeedViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let object = results[indexPath.row]
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let placeViewController = storyboard.instantiateViewController(withIdentifier: "singleplace") as! SinglePlaceViewController
+        
+        placeViewController.singlePlace = object
+        placeViewController.navigationItem.leftItemsSupplementBackButton = true
+        
+        self.navigationController?.pushViewController(placeViewController, animated: true)
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+        
     }
     
-
-    // MARK: - IBAction 
     
-    
-    
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        navigationItem.title = nil
+        
+        if segue.identifier == "showplace" {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let object = results[indexPath.row]
+                let controller = (segue.destination as! UINavigationController).topViewController as! SinglePlaceViewController
+                controller.singlePlace = object
+//                let backButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem., target: self, action: #selector(dismissPlaceView(_:)))
+//                controller.navigationItem.leftBarButtonItem =
+//                controller.navigationItem.leftItemsSupplementBackButton = true
+                navigationItem.title = "Back"
+                print("prepare segue!")
+            }
+        }
+        
     }
-    */
+    
+    
+    // MARK: IBActions
+    
+    @IBAction func refreshPlaceList(_ sender: UIBarButtonItem) {
+        
+        self.deletePlaces()
+        
+        self.getPlacesList()
+        
+    }
+    
 
 }

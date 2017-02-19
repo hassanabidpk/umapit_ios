@@ -9,6 +9,7 @@ target 'uMAPit' do
   pod 'RealmSwift'
   pod 'SwiftyJSON'
   pod 'Kingfisher', '~> 3.0'
+  pod 'ImageSlideshow', '~> 1.0.0'
 
 
   # Pods for uMAPit
