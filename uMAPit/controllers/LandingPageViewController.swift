@@ -23,6 +23,8 @@ class LandingPageViewController: UIViewController, UIPageViewControllerDataSourc
     var currentIndex: Int?
     private var pendingIndex: Int?
     
+//    let google_api_key = "AIzaSyB-zYAhnW0bDmH2g1uBJ1Ps558Sp25j1EE"
+    
     
     
     // MARK: - Life Cycle

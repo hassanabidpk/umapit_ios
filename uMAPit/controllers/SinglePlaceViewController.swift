@@ -114,7 +114,17 @@ class SinglePlaceViewController: UIViewController {
     
     @IBAction func didClickComment(_ sender: UIButton) {
         
+        navigationItem.title = nil
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
+        let commentViewController = storyboard.instantiateViewController(withIdentifier: "commentslistvc") as! CommentListViewController
+        
+        commentViewController.commentPlace = singlePlace
+        commentViewController.navigationItem.leftItemsSupplementBackButton = true
+        commentViewController.title = "uMAPit"
+        
+        self.navigationController?.pushViewController(commentViewController, animated: true)
+        self.navigationController?.navigationBar.tintColor = UIColor.black
     }
     
     

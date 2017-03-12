@@ -21,6 +21,7 @@
 		3C17CFD71E504982009A2BD3 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C17CFD51E504982009A2BD3 /* FeedViewController.swift */; };
 		3C17CFD81E504982009A2BD3 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C17CFD51E504982009A2BD3 /* FeedViewController.swift */; };
 		3C17CFDB1E50531A009A2BD3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C17CFDA1E505319009A2BD3 /* Constants.swift */; };
+		3C2E512B1E7426FD001D77BD /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2E512A1E7426FD001D77BD /* MessageTableViewCell.m */; };
 		3C3351C61E51E6EE00282464 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3351C51E51E6EE00282464 /* User.swift */; };
 		3C3351C81E52C09000282464 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3351C71E52C09000282464 /* String+MD5.swift */; };
 		3C3351CA1E55597100282464 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3351C91E55597100282464 /* Place.swift */; };
@@ -38,6 +39,10 @@
 		3C74348C1E2CEB190043A555 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C74348A1E2CEB190043A555 /* LaunchScreen.storyboard */; };
 		3C7434971E2CEB190043A555 /* uMAPitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7434961E2CEB190043A555 /* uMAPitTests.swift */; };
 		3C7434A21E2CEB190043A555 /* uMAPitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C7434A11E2CEB190043A555 /* uMAPitUITests.swift */; };
+		3CA03FC01E6AA91300952428 /* CommentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA03FBF1E6AA91300952428 /* CommentListViewController.swift */; };
+		3CA03FC11E6AA91300952428 /* CommentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA03FBF1E6AA91300952428 /* CommentListViewController.swift */; };
+		3CA03FC21E6AA91300952428 /* CommentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CA03FBF1E6AA91300952428 /* CommentListViewController.swift */; };
+		3CC2244C1E62A74F00F6BCBF /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CC2244B1E62A74F00F6BCBF /* Comment.swift */; };
 		6EFC39215D2673828EF66C62 /* Pods_uMAPitUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBDB818405B61A2D03F766D4 /* Pods_uMAPitUITests.framework */; };
 		82A48CE4F0ED52D6C1A8E12E /* Pods_uMAPit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EACABB2A253A3A0B7ACE5F97 /* Pods_uMAPit.framework */; };
 		B2998A20C42175CD52CF1B12 /* Pods_uMAPitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B329D889C21EA15FC944B6 /* Pods_uMAPitTests.framework */; };
@@ -70,6 +75,8 @@
 		3C17CFD11E504931009A2BD3 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3C17CFD51E504982009A2BD3 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		3C17CFDA1E505319009A2BD3 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		3C2E51291E7426C9001D77BD /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
+		3C2E512A1E7426FD001D77BD /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
 		3C3351C51E51E6EE00282464 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3C3351C71E52C09000282464 /* String+MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		3C3351C91E55597100282464 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
@@ -91,6 +98,9 @@
 		3C74349D1E2CEB190043A555 /* uMAPitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = uMAPitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C7434A11E2CEB190043A555 /* uMAPitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uMAPitUITests.swift; sourceTree = "<group>"; };
 		3C7434A31E2CEB190043A555 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CA03FBF1E6AA91300952428 /* CommentListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentListViewController.swift; sourceTree = "<group>"; };
+		3CA03FC31E6AAAF300952428 /* uMAPit-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "uMAPit-Bridging-Header.h"; sourceTree = "<group>"; };
+		3CC2244B1E62A74F00F6BCBF /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		90096849B4205F6C53F0442D /* Pods-uMAPitUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uMAPitUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uMAPitUITests/Pods-uMAPitUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		91EBC498A03CEC3E0448A9C7 /* Pods-uMAPit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-uMAPit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-uMAPit/Pods-uMAPit.debug.xcconfig"; sourceTree = "<group>"; };
 		B1B329D889C21EA15FC944B6 /* Pods_uMAPitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_uMAPitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,6 +159,7 @@
 				3C17CFD11E504931009A2BD3 /* ProfileViewController.swift */,
 				3C17CFD51E504982009A2BD3 /* FeedViewController.swift */,
 				3C3351D21E5880E200282464 /* SinglePlaceViewController.swift */,
+				3CA03FBF1E6AA91300952428 /* CommentListViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -158,6 +169,7 @@
 			children = (
 				3C17CFDA1E505319009A2BD3 /* Constants.swift */,
 				3C3351C71E52C09000282464 /* String+MD5.swift */,
+				3CA03FC31E6AAAF300952428 /* uMAPit-Bridging-Header.h */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -169,6 +181,7 @@
 				3C3351C91E55597100282464 /* Place.swift */,
 				3C3351CB1E555C6D00282464 /* Tag.swift */,
 				3C3351CD1E555D4B00282464 /* Location.swift */,
+				3CC2244B1E62A74F00F6BCBF /* Comment.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -178,6 +191,8 @@
 			children = (
 				3C3351D01E55FAF100282464 /* PlaceTableViewCell.swift */,
 				3C3351D61E5995D300282464 /* ProfileTableViewCell.swift */,
+				3C2E51291E7426C9001D77BD /* MessageTableViewCell.h */,
+				3C2E512A1E7426FD001D77BD /* MessageTableViewCell.m */,
 			);
 			path = tableviewcells;
 			sourceTree = "<group>";
@@ -534,15 +549,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C17CFD21E504931009A2BD3 /* ProfileViewController.swift in Sources */,
+				3C2E512B1E7426FD001D77BD /* MessageTableViewCell.m in Sources */,
 				3C3351CC1E555C6D00282464 /* Tag.swift in Sources */,
 				3C7434841E2CEB190043A555 /* LoginViewController.swift in Sources */,
 				3C3351D11E55FAF100282464 /* PlaceTableViewCell.swift in Sources */,
 				3C17CFC41E4F031A009A2BD3 /* LandingPageViewController.swift in Sources */,
+				3CC2244C1E62A74F00F6BCBF /* Comment.swift in Sources */,
 				3C17CFC81E4F0397009A2BD3 /* LandingViewController.swift in Sources */,
 				3C3351D31E5880E200282464 /* SinglePlaceViewController.swift in Sources */,
 				3C7434821E2CEB190043A555 /* AppDelegate.swift in Sources */,
 				3C3351CE1E555D4B00282464 /* Location.swift in Sources */,
 				3C3351D71E5995D300282464 /* ProfileTableViewCell.swift in Sources */,
+				3CA03FC01E6AA91300952428 /* CommentListViewController.swift in Sources */,
 				3C3351C61E51E6EE00282464 /* User.swift in Sources */,
 				3C17CFCE1E5048AB009A2BD3 /* HomeTabBarViewController.swift in Sources */,
 				3C3351C81E52C09000282464 /* String+MD5.swift in Sources */,
@@ -556,6 +574,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CA03FC11E6AA91300952428 /* CommentListViewController.swift in Sources */,
 				3C3351D41E5880E200282464 /* SinglePlaceViewController.swift in Sources */,
 				3C17CFCF1E5048AB009A2BD3 /* HomeTabBarViewController.swift in Sources */,
 				3C7434971E2CEB190043A555 /* uMAPitTests.swift in Sources */,
@@ -569,6 +588,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CA03FC21E6AA91300952428 /* CommentListViewController.swift in Sources */,
 				3C3351D51E5880E200282464 /* SinglePlaceViewController.swift in Sources */,
 				3C17CFD01E5048AB009A2BD3 /* HomeTabBarViewController.swift in Sources */,
 				3C7434A21E2CEB190043A555 /* uMAPitUITests.swift in Sources */,
@@ -719,6 +739,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = co.umapit.app.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "uMAPit/helpers/uMAPit-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -736,6 +757,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -DRELEASE";
 				PRODUCT_BUNDLE_IDENTIFIER = co.umapit.app.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "uMAPit/helpers/uMAPit-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

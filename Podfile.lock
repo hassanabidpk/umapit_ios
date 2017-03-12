@@ -1,5 +1,12 @@
 PODS:
   - Alamofire (4.3.0)
+  - GoogleMaps (2.1.1):
+    - GoogleMaps/Maps (= 2.1.1)
+  - GoogleMaps/Base (2.1.1)
+  - GoogleMaps/Maps (2.1.1):
+    - GoogleMaps/Base
+  - GooglePlaces (2.1.1):
+    - GoogleMaps/Base (= 2.1.1)
   - ImageSlideshow (1.0.0):
     - ImageSlideshow/Core (= 1.0.0)
   - ImageSlideshow/Core (1.0.0)
@@ -12,24 +19,31 @@ PODS:
   - Realm/Headers (2.4.2)
   - RealmSwift (2.4.2):
     - Realm (= 2.4.2)
+  - SlackTextViewController (1.9.5)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire (~> 4.3.0)
+  - GoogleMaps
+  - GooglePlaces
   - ImageSlideshow (~> 1.0.0)
   - ImageSlideshow/Kingfisher
   - Kingfisher (~> 3.0)
   - RealmSwift
+  - SlackTextViewController
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
+  GooglePlaces: 35636d86e5020cba3856eb988c09a5491de0a65a
   ImageSlideshow: 2787e10e202b79ecf5348a205c539fcc5bb8e62b
   Kingfisher: 5690cfb3d1bddf3a98d679a3a34d0b7294974ed2
   Realm: d27b758e12d62a3371879a065d4c40aa212c5a54
   RealmSwift: 9556c0fe0f0cfecacfb755ae9e68ff379fc6bead
+  SlackTextViewController: fbcdadbb8090673f604484ff5b6eb8d77baed42a
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 8bc206ec52ae96f42fcd20b3812047d453fb25ca
+PODFILE CHECKSUM: 640e761073baceedafbac07c2a7702b57e570e8c
 
 COCOAPODS: 1.1.1
