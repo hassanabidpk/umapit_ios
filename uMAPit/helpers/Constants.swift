@@ -20,5 +20,7 @@ struct Constants {
     
     static let BASE_LOGOUT_URL_LOCAL = "http://localhost:8000/rest-auth/logout/"
     static let BASE_LOGOUT_URL = "https://umapit.azurewebsites.net/rest-auth/logout/"
+    
+    static let tintColor = UIColor(red: 88/255.0, green: 93/255.0, blue: 87/255.0, alpha: 1.0)
 
 }

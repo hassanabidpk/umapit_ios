@@ -60,7 +60,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func setUI() {
     
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 77/255, green: 195/255, blue: 58/255, alpha: 1.0)
+        self.navigationController?.navigationBar.barTintColor = UIColor.white
+        self.navigationController?.navigationBar.tintColor = Constants.tintColor
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Constants.tintColor]
         
         let logoutButton = UIBarButtonItem(title: "Log out", style: UIBarButtonItemStyle.plain, target: self, action: #selector(actionLogoutUser(_:)))
         logoutButton.tintColor = UIColor.black

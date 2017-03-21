@@ -19,7 +19,8 @@ class HomeTabBarViewController: UITabBarController, UITabBarControllerDelegate {
         self.delegate = self
         self.selectedIndex = 0
         
-        self.tabBar.barTintColor = UIColor(red: 77/255, green: 195/255, blue: 58/255, alpha: 1.0)
+        self.tabBar.barTintColor = UIColor.white
+        self.tabBar.tintColor = Constants.tintColor
         
         tabBarController(self, didSelect: self.selectedViewController!)
         

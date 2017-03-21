@@ -116,6 +116,9 @@ class CommentListViewController: SLKTextViewController {
         self.textView.registerMarkdownFormattingSymbol("```", withTitle: "Preformatted")
         self.textView.registerMarkdownFormattingSymbol(">", withTitle: "Quote")
         
+        let refreshItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(CommentListViewController.toggleRefreshButton(_:)))
+        self.navigationItem.rightBarButtonItem = refreshItem
+        
     }
 
     
@@ -295,13 +298,17 @@ class CommentListViewController: SLKTextViewController {
     
     func getPlaceComments() {
         
+        self.deleteCommentsForPlace()
+        
         activityIndicatorView.startAnimating()
         
         if let place = commentPlace {
             
             //            let predicate = NSPredicate(format: "place = %@", "\(place)")
             
-            commentsResult = realm.objects(Comment.self).filter("place == %@", place)
+            commentsResult = realm.objects(Comment.self)
+                .filter("place == %@", place)
+                .sorted(byKeyPath: "created_at", ascending: false)
             
             if ((commentsResult?.count)! > 0 ) {
                 
@@ -416,9 +423,6 @@ class CommentListViewController: SLKTextViewController {
     }
     
     
-    
-    
-    
     func dateFromStringConverter(date: String)-> Date? {
         
         let dateFormatter = DateFormatter()
@@ -432,10 +436,125 @@ class CommentListViewController: SLKTextViewController {
     
     override func didPressRightButton(_ sender: Any?) {
         
-        print("send button pressed")
+        print("Post comment")
+        // This little trick validates any pending auto-correction or auto-spelling just after hitting the 'Send' button
+//        self.textView.refreshFirstResponder()
+        
+        if(self.textView.text.characters.count > 0) {
+            
+            let indexPath = IndexPath(row: 0, section: 0)
+            let rowAnimation: UITableViewRowAnimation = self.isInverted ? .bottom : .top
+            let scrollPosition: UITableViewScrollPosition = self.isInverted ? .bottom : .top
+            
+            let userDefaults = UserDefaults.standard
+            
+            let strToken = userDefaults.value(forKey: "userToken")
+            let authToken = "Token \(strToken!)"
+            
+            let headers = [
+                "Authorization": authToken
+            ]
+            
+            let place_id = commentPlace!.id
+            print("comment for place_id \(place_id) with text : \(self.textView.text!)")
+            
+            let parameters: Parameters = ["place": place_id,
+                                          "text": self.textView.text!,
+                                          "approved_comment" : true]
+            
+            Alamofire.request("\(COMMENTS_LIST_URL)\(place_id)/",
+                                method: .post,
+                                parameters: parameters,
+                                encoding: JSONEncoding.default,
+                                headers: headers).responseJSON { response in
+                    
+                    debugPrint(response)
+                    
+                    if let commentStatus = response.result.value {
+                        
+                        let json = JSON(commentStatus)
+                        print("comment JSON: \(json)")
+                        
+                            
+                        print("writing new comments to REALM db")
+                        let realm = try! Realm()
+                        realm.beginWrite()
+                                
+                        let comment = realm.create(Comment.self, value: ["text": json["text"].stringValue,
+                                                                         "created_at": self.dateFromStringConverter(date: json["created_at"].stringValue)!,
+                                                                         "id": json["id"].int!,
+                                                                         "approved_comment": json["approved_comment"].bool!])
+                                
+                                
+                        let user = json["user"]
+                                
+                        let existing_user = try! Realm().objects(User.self).filter("id = \(user["id"].int!)")
+                                
+                        if(existing_user.count < 1) {
+                                    
+                        let place_user = realm.create(User.self, value : ["id" : user["id"].int!,
+                                                                          "username": user["username"].stringValue,
+                                                                          "first_name": user["first_name"].stringValue,
+                                                                          "last_name": user["last_name"].stringValue,
+                                                                          "email": user["email"].stringValue] )
+                                    
+                                    comment.user = place_user
+                                    
+                        } else {
+                                    
+                            comment.user = existing_user[0]
+                                    
+                        }
+                                
+                        let place_id = json["place"].int!
+                        let existing_place = try! Realm().objects(Place.self).filter("id = \(place_id)")
+                                
+                        comment.place = existing_place[0]
+                            
+                        try! realm.commitWrite()
+                            
+                            
+//                        self.tableView.beginUpdates()
+                            // insert to Realm
+//                        self.tableView.insertRows(at: [indexPath], with: rowAnimation)
+//                        self.tableView.endUpdates()
+                        
+                        self.tableView.scrollToRow(at: indexPath, at: scrollPosition, animated: true)
+                            
+                        // Fixes the cell from blinking (because of the transform, when using translucent cells)
+                        // See https://github.com/slackhq/SlackTextViewController/issues/94#issuecomment-69929927
+                        self.tableView.reloadRows(at: [indexPath], with: .automatic)
+                            
+                        super.didPressRightButton(sender)
+
+                    } else {
+                        
+                        print("error posting new comments")
+                        
+                    }
+            }
+        }
+        
     }
     
+    // - MARK- Actions 
     
-
+    func toggleRefreshButton(_ sender: AnyObject) {
+        
+      self.getPlaceComments()
+        
+    }
+    
+    func deleteCommentsForPlace() {
+        
+        try! realm.write {
+            if let results = self.commentsResult {
+                
+                realm.delete(results)
+            }
+        }
+        
+    }
+    
 
 }

@@ -35,14 +35,21 @@ class SinglePlaceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       setUI()
+        configureActionItems()
+        setUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     
     // MARK: - UI
     
     func setUI()  {
-    
+        
+        
         if let place = singlePlace {
         
             if let fname = place.user?.first_name, let lname = place.user?.last_name {
@@ -56,17 +63,6 @@ class SinglePlaceViewController: UIViewController {
             likeLabel.text = "\(place.like_count)"
             flagLabel.text = "\(place.flag_count)"
             
-//            placeImage.autoresizingMask = [.flexibleWidth, .flexibleHeight, .flexibleBottomMargin, .flexibleRightMargin, .flexibleLeftMargin, .flexibleTopMargin]
-//            placeImage.contentMode = .scaleAspectFill
-//            placeImage.clipsToBounds = true
-//            
-//            
-//           placeImage.kf.setImage(with: URL(string: "\(IMAGE_BASE_URL)\(place.image_1)")!,
-//                                        placeholder: nil,
-//                                        options: [.transition(.fade(1))],
-//                                        progressBlock: nil,
-//                                        completionHandler: nil)
-//            
         
             placeImageSlideShow.backgroundColor = UIColor.white
             placeImageSlideShow.slideshowInterval = 5.0
@@ -91,6 +87,12 @@ class SinglePlaceViewController: UIViewController {
     
     }
     
+    func configureActionItems() {
+    
+        let mapItem = UIBarButtonItem(image: UIImage(named: "ic_map_white_36pt"), style: .plain, target: self, action: #selector(SinglePlaceViewController.showMapView(_:)))
+        
+        self.navigationItem.rightBarButtonItem = mapItem
+    }
     
    func getFormattedDateForUI(_ date: Date?) -> String {
         
@@ -123,10 +125,35 @@ class SinglePlaceViewController: UIViewController {
         commentViewController.navigationItem.leftItemsSupplementBackButton = true
         commentViewController.title = "uMAPit"
         
+        self.navigationController?.navigationBar.tintColor = Constants.tintColor
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Constants.tintColor]
+        
         self.navigationController?.pushViewController(commentViewController, animated: true)
-        self.navigationController?.navigationBar.tintColor = UIColor.black
+        
     }
     
+    
+    // MARK: - Action Methods
+    
+    func showMapView(_ sender: AnyObject) {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let mapViewController = storyboard.instantiateViewController(withIdentifier: "singlemapvc") as! SingleMapViewController
+        
+        
+        mapViewController.singlePlace = self.singlePlace!
+        
+        mapViewController.navigationItem.leftItemsSupplementBackButton = true
+        mapViewController.title = "uMAPit"
+        
+        self.navigationController?.navigationBar.tintColor = Constants.tintColor
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Constants.tintColor]
+        
+        self.navigationController?.pushViewController(mapViewController, animated: true)
+        
+        
+    }
     
 
 

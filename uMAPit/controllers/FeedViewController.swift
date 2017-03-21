@@ -55,8 +55,9 @@ class FeedViewController: UITableViewController {
     
     func setUI() {
         
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 77/255, green: 195/255, blue: 58/255, alpha: 1.0)
-        
+        self.navigationController?.navigationBar.barTintColor = UIColor.white
+        self.navigationController?.navigationBar.tintColor = Constants.tintColor
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Constants.tintColor]
         
         // Set results notification block
         self.notificationToken = results.addNotificationBlock { (changes: RealmCollectionChange) in
@@ -355,8 +356,10 @@ class FeedViewController: UITableViewController {
         placeViewController.navigationItem.leftItemsSupplementBackButton = true
         placeViewController.title = "uMAPit"
         
+        self.navigationController?.navigationBar.tintColor = Constants.tintColor
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Constants.tintColor]
+        
         self.navigationController?.pushViewController(placeViewController, animated: true)
-        self.navigationController?.navigationBar.tintColor = UIColor.black
         
     }
     
