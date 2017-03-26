@@ -52,7 +52,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         
         self.getUserDetails()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     

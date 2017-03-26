@@ -49,6 +49,7 @@ class FeedViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         navigationItem.title = "uMAPit"
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     // MARK : - UI 
@@ -370,6 +371,23 @@ class FeedViewController: UITableViewController {
         self.deletePlaces()
         
         self.getPlacesList()
+        
+    }
+    
+    @IBAction func addNewPlace(_ sender: UIBarButtonItem) {
+        
+        navigationItem.title = nil
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mapViewController = storyboard.instantiateViewController(withIdentifier: "newmapvc") as! NewMapViewController
+        
+        mapViewController.navigationItem.leftItemsSupplementBackButton = true
+        mapViewController.title = "uMAPit"
+        
+        self.navigationController?.navigationBar.tintColor = Constants.tintColor
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Constants.tintColor]
+        
+        self.navigationController?.pushViewController(mapViewController, animated: true)
         
     }
     

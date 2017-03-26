@@ -7,6 +7,8 @@ PODS:
     - GoogleMaps/Base
   - GooglePlaces (2.1.1):
     - GoogleMaps/Base (= 2.1.1)
+  - IHKeyboardAvoiding (3.7)
+  - ImagePicker (2.0.0)
   - ImageSlideshow (1.0.0):
     - ImageSlideshow/Core (= 1.0.0)
   - ImageSlideshow/Core (1.0.0)
@@ -26,6 +28,8 @@ DEPENDENCIES:
   - Alamofire (~> 4.3.0)
   - GoogleMaps
   - GooglePlaces
+  - IHKeyboardAvoiding
+  - ImagePicker
   - ImageSlideshow (~> 1.0.0)
   - ImageSlideshow/Kingfisher
   - Kingfisher (~> 3.0)
@@ -37,6 +41,8 @@ SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   GoogleMaps: a5b5bbe47734e2443bde781a6aa64e69fdb6d785
   GooglePlaces: 35636d86e5020cba3856eb988c09a5491de0a65a
+  IHKeyboardAvoiding: 4c852fae85667469307678c65f14f5cac8a7be92
+  ImagePicker: 81175d36c2852cb543cb4f5d6c19e28f3e8d90eb
   ImageSlideshow: 2787e10e202b79ecf5348a205c539fcc5bb8e62b
   Kingfisher: 5690cfb3d1bddf3a98d679a3a34d0b7294974ed2
   Realm: d27b758e12d62a3371879a065d4c40aa212c5a54
@@ -44,6 +50,6 @@ SPEC CHECKSUMS:
   SlackTextViewController: fbcdadbb8090673f604484ff5b6eb8d77baed42a
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 640e761073baceedafbac07c2a7702b57e570e8c
+PODFILE CHECKSUM: 3a5de3a5354a742ba3bd5fa5e74ce2b6a0079777
 
 COCOAPODS: 1.1.1

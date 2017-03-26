@@ -512,12 +512,6 @@ class CommentListViewController: SLKTextViewController {
                         comment.place = existing_place[0]
                             
                         try! realm.commitWrite()
-                            
-                            
-//                        self.tableView.beginUpdates()
-                            // insert to Realm
-//                        self.tableView.insertRows(at: [indexPath], with: rowAnimation)
-//                        self.tableView.endUpdates()
                         
                         self.tableView.scrollToRow(at: indexPath, at: scrollPosition, animated: true)
                             

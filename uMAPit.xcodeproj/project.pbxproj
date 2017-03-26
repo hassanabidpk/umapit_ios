@@ -23,6 +23,8 @@
 		3C17CFDB1E50531A009A2BD3 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C17CFDA1E505319009A2BD3 /* Constants.swift */; };
 		3C2E512B1E7426FD001D77BD /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2E512A1E7426FD001D77BD /* MessageTableViewCell.m */; };
 		3C2E512D1E754432001D77BD /* SingleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2E512C1E754432001D77BD /* SingleMapViewController.swift */; };
+		3C2E512F1E82B961001D77BD /* NewMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2E512E1E82B961001D77BD /* NewMapViewController.swift */; };
+		3C2E51311E87AB5D001D77BD /* NewPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2E51301E87AB5D001D77BD /* NewPlaceViewController.swift */; };
 		3C3351C61E51E6EE00282464 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3351C51E51E6EE00282464 /* User.swift */; };
 		3C3351C81E52C09000282464 /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3351C71E52C09000282464 /* String+MD5.swift */; };
 		3C3351CA1E55597100282464 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3351C91E55597100282464 /* Place.swift */; };
@@ -79,6 +81,8 @@
 		3C2E51291E7426C9001D77BD /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
 		3C2E512A1E7426FD001D77BD /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
 		3C2E512C1E754432001D77BD /* SingleMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleMapViewController.swift; sourceTree = "<group>"; };
+		3C2E512E1E82B961001D77BD /* NewMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewMapViewController.swift; sourceTree = "<group>"; };
+		3C2E51301E87AB5D001D77BD /* NewPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPlaceViewController.swift; sourceTree = "<group>"; };
 		3C3351C51E51E6EE00282464 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3C3351C71E52C09000282464 /* String+MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		3C3351C91E55597100282464 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
@@ -163,6 +167,8 @@
 				3C3351D21E5880E200282464 /* SinglePlaceViewController.swift */,
 				3CA03FBF1E6AA91300952428 /* CommentListViewController.swift */,
 				3C2E512C1E754432001D77BD /* SingleMapViewController.swift */,
+				3C2E512E1E82B961001D77BD /* NewMapViewController.swift */,
+				3C2E51301E87AB5D001D77BD /* NewPlaceViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -551,6 +557,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C2E512F1E82B961001D77BD /* NewMapViewController.swift in Sources */,
+				3C2E51311E87AB5D001D77BD /* NewPlaceViewController.swift in Sources */,
 				3C17CFD21E504931009A2BD3 /* ProfileViewController.swift in Sources */,
 				3C2E512B1E7426FD001D77BD /* MessageTableViewCell.m in Sources */,
 				3C3351CC1E555C6D00282464 /* Tag.swift in Sources */,

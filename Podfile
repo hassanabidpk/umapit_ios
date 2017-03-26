@@ -14,6 +14,8 @@ target 'uMAPit' do
   pod 'GoogleMaps'
   pod 'GooglePlaces'
   pod 'SlackTextViewController'
+  pod 'IHKeyboardAvoiding'
+  pod 'ImagePicker'
 
 
   # Pods for uMAPit
