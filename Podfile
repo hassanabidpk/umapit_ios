@@ -16,6 +16,7 @@ target 'uMAPit' do
   pod 'SlackTextViewController'
   pod 'IHKeyboardAvoiding'
   pod 'ImagePicker'
+  pod 'PKHUD', '~> 4.0'
 
 
   # Pods for uMAPit

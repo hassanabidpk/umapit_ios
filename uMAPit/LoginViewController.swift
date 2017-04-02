@@ -9,6 +9,8 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import PKHUD
+import IHKeyboardAvoiding
 
 #if DEBUG
     let BASE_LOGIN_URL = "http://localhost:8000/rest-auth/login/"
@@ -54,6 +56,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         notificationCenter.addObserver(self, selector: #selector(LoginViewController.handleKeyboardNotification(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         self.loginSpinner.stopAnimating()
+        
+//        KeyboardAvoiding.avoidingView = self.loginButton
     
     }
     
@@ -132,22 +136,31 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                             print("token: \(strToken)")
                             self.loginSpinner.stopAnimating()
                             self.saveUserDefaults(strToken: strToken, userName: username)
-                            self.startHomeController()
+                            HUD.flash(.success, delay: 1.0) { finished in
+                                
+                                self.startHomeController()
+                            }
+                            
                             
                         } else {
                             
                             print("login failed \(loginStatus)")
                             self.loginSpinner.stopAnimating()
-                            self.showLoginAlert()
-                            self.passwordTextField.text = ""
+                            HUD.flash(.error, delay: 1.0) { finished in
+                                self.showLoginAlert()
+                                self.passwordTextField.text = ""
+                                
+                            }
+                            
                             
                         }
                     
                     } else {
                         
-                         self.loginSpinner.stopAnimating()
+                            self.loginSpinner.stopAnimating()
+                            HUD.flash(.error, delay: 1.0)
                     }
-            }
+                }
             
             
         }

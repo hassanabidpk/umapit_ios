@@ -16,6 +16,7 @@ PODS:
     - ImageSlideshow/Core
     - Kingfisher (~> 3.0)
   - Kingfisher (3.4.0)
+  - PKHUD (4.2.0)
   - Realm (2.4.2):
     - Realm/Headers (= 2.4.2)
   - Realm/Headers (2.4.2)
@@ -33,6 +34,7 @@ DEPENDENCIES:
   - ImageSlideshow (~> 1.0.0)
   - ImageSlideshow/Kingfisher
   - Kingfisher (~> 3.0)
+  - PKHUD (~> 4.0)
   - RealmSwift
   - SlackTextViewController
   - SwiftyJSON
@@ -45,11 +47,12 @@ SPEC CHECKSUMS:
   ImagePicker: 81175d36c2852cb543cb4f5d6c19e28f3e8d90eb
   ImageSlideshow: 2787e10e202b79ecf5348a205c539fcc5bb8e62b
   Kingfisher: 5690cfb3d1bddf3a98d679a3a34d0b7294974ed2
+  PKHUD: 48af884cf00c2213b0313b739d914e6cab1c0f5e
   Realm: d27b758e12d62a3371879a065d4c40aa212c5a54
   RealmSwift: 9556c0fe0f0cfecacfb755ae9e68ff379fc6bead
   SlackTextViewController: fbcdadbb8090673f604484ff5b6eb8d77baed42a
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 3a5de3a5354a742ba3bd5fa5e74ce2b6a0079777
+PODFILE CHECKSUM: e7eda7d6209f2878ceaaa710c4e048615d03456c
 
 COCOAPODS: 1.1.1

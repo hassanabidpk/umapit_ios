@@ -54,20 +54,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Ln8-aC-hoD">
-                                <rect key="frame" x="147.5" y="110" width="80" height="80"/>
+                                <rect key="frame" x="148" y="110" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="SaS-ZQ-TMD"/>
                                     <constraint firstAttribute="width" constant="80" id="rd4-iy-IEX"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter username or email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C9V-Ld-Qnj">
-                                <rect key="frame" x="98.5" y="235" width="178" height="30"/>
+                                <rect key="frame" x="99" y="235" width="178" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ESy-cd-KWe">
-                                <rect key="frame" x="98.5" y="298" width="178" height="30"/>
+                                <rect key="frame" x="99" y="298" width="178" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="178" id="anK-fG-4B2"/>
                                 </constraints>
@@ -76,7 +76,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59d-wE-NkX">
-                                <rect key="frame" x="98.5" y="375" width="178" height="34"/>
+                                <rect key="frame" x="99" y="375" width="178" height="34"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="178" id="Lpn-qI-jL6"/>
@@ -299,7 +299,7 @@
         <!--uMAPit-->
         <scene sceneID="cPN-VQ-Ats">
             <objects>
-                <tableViewController id="U2u-Tm-ZVJ" customClass="FeedViewController" customModule="uMAPit" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="feedvc" id="U2u-Tm-ZVJ" customClass="FeedViewController" customModule="uMAPit" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="290" sectionHeaderHeight="28" sectionFooterHeight="28" id="aQT-XF-jNa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -479,7 +479,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bombay Biryani" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3LA-zi-V3K">
-                                <rect key="frame" x="81" y="70" width="172" height="20.5"/>
+                                <rect key="frame" x="81" y="70" width="172" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -509,7 +509,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="thE-v2-ano" customClass="ImageSlideshow" customModule="ImageSlideshow">
-                                <rect key="frame" x="16" y="125.5" width="343" height="400.5"/>
+                                <rect key="frame" x="16" y="126" width="343" height="400"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rdc-ns-0tY">
@@ -531,7 +531,7 @@
                                 <state key="normal" title="Button" image="ic_thumb_up_36pt"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kip-7m-qCd">
-                                <rect key="frame" x="166.5" y="601" width="42" height="36"/>
+                                <rect key="frame" x="167" y="601" width="42" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="42" id="Qc0-oT-UbA"/>
                                 </constraints>
@@ -628,7 +628,7 @@
         <!--My Profile-->
         <scene sceneID="4eS-S9-cX9">
             <objects>
-                <viewController id="Np5-sx-M6x" customClass="ProfileViewController" customModule="uMAPit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profilevc" id="Np5-sx-M6x" customClass="ProfileViewController" customModule="uMAPit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4Y1-rm-3wk"/>
                         <viewControllerLayoutGuide type="bottom" id="xIR-2E-ecP"/>
@@ -797,31 +797,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="uMAPit!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFO-bH-8AC">
-                                <rect key="frame" x="126.5" y="223" width="121" height="39"/>
+                                <rect key="frame" x="127" y="223" width="121" height="39"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pin, Post, Tag Any Location  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLb-er-dIc">
-                                <rect key="frame" x="78.5" y="291" width="217" height="21"/>
+                                <rect key="frame" x="79" y="291" width="217" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share with your Group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DEq-x9-Bvf">
-                                <rect key="frame" x="101.5" y="345" width="171" height="21"/>
+                                <rect key="frame" x="102" y="345" width="171" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anyone can search it" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9t-II-0mN">
-                                <rect key="frame" x="106.5" y="396" width="160" height="21"/>
+                                <rect key="frame" x="107" y="396" width="160" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="YNu-hS-YRD">
-                                <rect key="frame" x="147.5" y="124" width="80" height="80"/>
+                                <rect key="frame" x="148" y="124" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="E99-jV-hkI"/>
                                     <constraint firstAttribute="width" constant="80" id="Frj-Fc-PWN"/>
@@ -853,7 +853,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="N5t-jy-c81" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="ic_person_outline_white_36pt" id="sVH-cY-aJu"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="LPN-7z-Cav">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LPN-7z-Cav">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -872,7 +872,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hT5-gP-7CS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Feed" image="ic_menu_white_36pt" id="JPg-dm-Ugd"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ncg-9V-dxa">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ncg-9V-dxa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

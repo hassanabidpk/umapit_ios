@@ -11,6 +11,7 @@ import Alamofire
 import RealmSwift
 import Kingfisher
 import SwiftyJSON
+import PKHUD
 
 #if DEBUG
     let PLACES_LIST_URL = "http://localhost:8000/place/api/v1/list/"
@@ -139,7 +140,7 @@ class FeedViewController: UITableViewController {
 
                     
                 }
-                
+                PKHUD.sharedHUD.hide()
                 self.activityIndicatorView.stopAnimating()
                     
             }
@@ -289,10 +290,10 @@ class FeedViewController: UITableViewController {
     func refresh(_ sender: AnyObject) {
         
         print("refresh list")
-        
-        self.deletePlaces()
-        
-        self.getPlacesList()
+        // FIXME: Fix this exception
+//        self.deletePlaces()
+//        
+//        self.getPlacesList()
         
         self.refreshControl?.endRefreshing()
     
@@ -334,12 +335,15 @@ class FeedViewController: UITableViewController {
         cell.placeImage.contentMode = .scaleAspectFill
         cell.placeImage.clipsToBounds = true
         
-        
-        cell.placeImage.kf.setImage(with: URL(string: "\(IMAGE_BASE_URL)\(object.image_1)")!,
+        if(!object.image_1.isEmpty) {
+            cell.placeImage.kf.setImage(with: URL(string: "\(IMAGE_BASE_URL)\(object.image_1)")!,
                                              placeholder: nil,
                                              options: [.transition(.fade(1))],
                                              progressBlock: nil,
                                              completionHandler: nil)
+        } else {
+            cell.placeImage.image = UIImage(named: "dummyrestaurant")
+        }
 
         
         return cell
@@ -367,6 +371,9 @@ class FeedViewController: UITableViewController {
     // MARK: IBActions
     
     @IBAction func refreshPlaceList(_ sender: UIBarButtonItem) {
+        
+        PKHUD.sharedHUD.contentView = PKHUDProgressView()
+        PKHUD.sharedHUD.show()
         
         self.deletePlaces()
         

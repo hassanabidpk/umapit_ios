@@ -92,8 +92,6 @@ class NewMapViewController: UIViewController, CLLocationManagerDelegate, GMSMapV
     func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
         
         print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
-        
-        nextButton.isHidden = false
 
         mapView.clear()
         marker = GMSMarker()
@@ -108,6 +106,7 @@ class NewMapViewController: UIViewController, CLLocationManagerDelegate, GMSMapV
                 print("didTAP : result : \(result)")
                 self.marker.title = result.lines?[0]
                 self.marker.snippet = result.lines?[1]
+                self.nextButton.isHidden = false
             }
             
         }

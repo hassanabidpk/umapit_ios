@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCameraUsageDescription</key>
-	<string>You can take a photo and upload to uMAPit! right away!</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>You can select photos in your photo library to upload!</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -23,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>7</string>
+	<string>8</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
 	<key>LSRequiresIPhoneOS</key>
@@ -47,8 +43,12 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>You can take a photo and upload to uMAPit! right away!</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Providing us with your current location helps you find and navigate to the places you want to get to :)</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>You can select photos in your photo library to upload!</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
