@@ -36,6 +36,8 @@ class FeedViewController: UITableViewController {
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
+        
+        print("viewDidLoad")
         super.viewDidLoad()
         
         setUI()
@@ -49,6 +51,7 @@ class FeedViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
+        print("viewWillAppear")
         navigationItem.title = "uMAPit"
         self.tabBarController?.tabBar.isHidden = false
     }
@@ -372,12 +375,7 @@ class FeedViewController: UITableViewController {
     
     @IBAction func refreshPlaceList(_ sender: UIBarButtonItem) {
         
-        PKHUD.sharedHUD.contentView = PKHUDProgressView()
-        PKHUD.sharedHUD.show()
-        
-        self.deletePlaces()
-        
-        self.getPlacesList()
+        fetchPlacesList()
         
     }
     
@@ -398,5 +396,26 @@ class FeedViewController: UITableViewController {
         
     }
     
+    func reloadTableView() {
+        
+        print("reloadTableView")
+        fetchPlacesList()
+        
+    }
+    
+    func fetchPlacesList() {
+    
+        PKHUD.sharedHUD.contentView = PKHUDProgressView()
+        PKHUD.sharedHUD.show()
+        
+        self.deletePlaces()
+        
+        self.getPlacesList()
+    }
+    
+    deinit {
+        notificationToken?.stop()
+    }
+
 
 }

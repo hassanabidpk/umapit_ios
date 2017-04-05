@@ -83,82 +83,112 @@ class NewPlaceViewController: UIViewController, UITextFieldDelegate, UITextViewD
                                       "slug" : "location-slug",
                                       "location" : loc.id,
                                       "tags": tags]
-        
-        Alamofire.request(PLACE_CREATE_API_URL,
-                          method: .post,
-                          parameters: parameters,
-                          encoding: JSONEncoding.default,
-                          headers: headers).responseJSON { response in
-                            
-                            debugPrint(response)
-                            
-                            if let placeStatus = response.result.value {
-                                
-                                let json = JSON(placeStatus)
-                                print("new place JSON: \(json)")
-                                if let new_place_name = json["name"].string {
-                                
-                                    print("writing new place to REALM db")
-                                    let realm = try! Realm()
-                                    realm.beginWrite()
-                                
-                                    let new_place = realm.create(Place.self, value: ["name": new_place_name,
-                                                                                 "description_place": json["description"].stringValue,
-                                                                                 "created_at": self.dateFromStringConverter(date: json["created_at"].stringValue)!,
-                                                                                 "updated_at": self.dateFromStringConverter(date: json["updated_at"].stringValue)!,
-                                                                                 "id": json["id"].int!,
-                                                                                 "image_1": json["image_1"].stringValue,
-                                                                                 "image_2": json["image_2"].stringValue,
-                                                                                 "image_3": json["image_3"].stringValue,
-                                                                                 "image_4": json["image_4"].stringValue,
-                                                                                 "slug": json["slug"].stringValue,
-                                                                                 "like_count": 0,
-                                                                                 "flag_count": 0])
-                                
-                                
-                                    new_place.location = loc
-                                
-                                    let user = json["user"]
-                                    let existing_user = try! Realm().objects(User.self).filter("id = \(user["id"].int!)")
-                                    new_place.user = existing_user[0]
-                                
-                                    let places_tags = json["place_tags"].array
-                                
-                                    for tag in places_tags! {
-                                    
-                                        let existing_tag = try! Realm().objects(Tag.self).filter("id = \(tag["id"].int!)")
-                                    
-                                        if(existing_tag.count < 1) {
-                                        
-                                            let new_tag = realm.create(Tag.self, value: ["title": tag["title"].stringValue,
-                                                                                     "id": tag["id"].int!,
-                                                                                     "slug": tag["slug"].stringValue])
-                                            print("new_tag : \(new_tag)")
-                                            new_place.place_tags.append(new_tag)
-                                        
-                                        } else {
-                                        
-                                            new_place.place_tags.append(existing_tag[0])
-                                        }
-                                    
-                                    
-                                    }
-                                
-                                    try! realm.commitWrite()
-                                
-                                    self.showFeedViewController()
-                                
-                                } else {
-                                
-                                    print("error posting new place")
-                                
-                                }
+                
+            Alamofire.upload(
+                    multipartFormData: { multipartFormData in
+                        if let image1 = self.imageView1.image {
+                            let imageData1 = UIImageJPEGRepresentation(image1, 0.8)
+                            multipartFormData.append(imageData1!, withName: "image_1", fileName: "photo_1.jpg", mimeType: "jpg/png")
+                        }
+                        if let image2 = self.imageView2.image {
+                            let imageData2 = UIImageJPEGRepresentation(image2, 0.8)
+                            multipartFormData.append(imageData2!, withName: "image_2", fileName: "photo_2.jpg", mimeType: "jpg/png")
+                        }
+                        if let image3 = self.imageView3.image {
+                            let imageData3 = UIImageJPEGRepresentation(image3, 0.8)
+                            multipartFormData.append(imageData3!, withName: "image_3", fileName: "photo_3.jpg", mimeType: "jpg/png")
+                        }
+                        if let image4 = self.imageView4.image {
+                            let imageData4 = UIImageJPEGRepresentation(image4, 0.8)
+                            multipartFormData.append(imageData4!, withName: "image_4", fileName: "photo_4.jpg", mimeType: "jpg/png")
+                        }
+                        for (key, value) in parameters {
+                            if value is String || value is Int {
+                                multipartFormData.append("\(value)".data(using: .utf8)!, withName: key)
                             }
-                }
-            
-        }
+                        }
+                },
+                    to: PLACE_CREATE_API_URL,
+                    headers: headers,
+                    encodingCompletion: { encodingResult in
+                        switch encodingResult {
+                        case .success(let upload, _, _):
+                            upload.responseJSON { response in
+                                debugPrint(response)
+                                if let placeStatus = response.result.value {
+                                    
+                                    let json = JSON(placeStatus)
+                                    print("new place JSON: \(json)")
+                                    if let new_place_name = json["name"].string {
+                                        
+                                        print("writing new place to REALM db")
+                                        let realm = try! Realm()
+                                        realm.beginWrite()
+                                        
+                                        let new_place = realm.create(Place.self, value: ["name": new_place_name,
+                                                                                         "description_place": json["description"].stringValue,
+                                                                                         "created_at": self.dateFromStringConverter(date: json["created_at"].stringValue)!,
+                                                                                         "updated_at": self.dateFromStringConverter(date: json["updated_at"].stringValue)!,
+                                                                                         "id": json["id"].int!,
+                                                                                         "image_1": json["image_1"].stringValue,
+                                                                                         "image_2": json["image_2"].stringValue,
+                                                                                         "image_3": json["image_3"].stringValue,
+                                                                                         "image_4": json["image_4"].stringValue,
+                                                                                         "slug": json["slug"].stringValue,
+                                                                                         "like_count": 0,
+                                                                                         "flag_count": 0])
+                                        
+                                        
+                                        new_place.location = loc
+                                        
+                                        let user = json["user"]
+                                        let existing_user = try! Realm().objects(User.self).filter("id = \(user["id"].int!)")
+                                        new_place.user = existing_user[0]
+                                        
+                                        let places_tags = json["place_tags"].array
+                                        
+                                        for tag in places_tags! {
+                                            
+                                            let existing_tag = try! Realm().objects(Tag.self).filter("id = \(tag["id"].int!)")
+                                            
+                                            if(existing_tag.count < 1) {
+                                                
+                                                let new_tag = realm.create(Tag.self, value: ["title": tag["title"].stringValue,
+                                                                                             "id": tag["id"].int!,
+                                                                                             "slug": tag["slug"].stringValue])
+                                                print("new_tag : \(new_tag)")
+                                                new_place.place_tags.append(new_tag)
+                                                
+                                            } else {
+                                                
+                                                new_place.place_tags.append(existing_tag[0])
+                                            }
+                                            
+                                            
+                                        }
+                                        
+                                        try! realm.commitWrite()
+                                        
+                                        self.showFeedViewController()
+                                        
+                                    } else {
+                                        
+                                        HUD.flash(.error, delay: 1.0)
+                                        print("error posting new place")
+                                        
+                                    }
+                                }
 
+                            }
+                        case .failure(let encodingError):
+                            print("encoding Error : \(encodingError)")
+                            HUD.flash(.error, delay: 1.0)
+                        }
+                })
         
+        } else {
+            HUD.flash(.error, delay: 1.0)
+        }
     }
     
     @IBAction func didPressAddPhotos(_ sender: Any) {
@@ -303,6 +333,12 @@ class NewPlaceViewController: UIViewController, UITextFieldDelegate, UITextViewD
     func showFeedViewController() {
         
         HUD.flash(.success, delay: 1.0) { finished in
+            
+            print("viewcontrollers : \(self.navigationController?.viewControllers)")
+            if let feedVC = self.navigationController?.viewControllers[0] as? FeedViewController {
+                
+                feedVC.reloadTableView()
+            }
             
             let _ = self.navigationController?.popToRootViewController(animated: true)
 
